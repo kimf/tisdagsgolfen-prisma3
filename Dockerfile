@@ -16,6 +16,7 @@ RUN apk add --update curl && \
 COPY package.json .
 COPY package-lock.json .
 ADD . .
+RUN touch .env
 RUN npm install && npm run build
 
 CMD ["node", "src/index.js"]
