@@ -9,8 +9,9 @@
     "start": "node ./src/index.js",
     "dev": "nodemand ./src/index.js",
     "build": "npm run prisma:generate && npm run prisma:migrate",
-    "prisma:generate": "source .env && prisma generate",
-    "prisma:migrate": "source .env && prisma migrate deploy"
+    "build:dev": "source .env && npm run build",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate deploy"
   },
   "devDependencies": {
     "nodemand": "^0.1.11",
