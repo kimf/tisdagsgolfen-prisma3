@@ -1,4 +1,4 @@
-FROM node:12.16.2-alpine
+FROM node:17.0.1-alpine
 
 ENV LANG=C.UTF-8
 ENV GLIBC_VERSION 2.30-r0
@@ -16,6 +16,6 @@ RUN apk add --update curl && \
 COPY package.json .
 COPY package-lock.json .
 ADD . .
-RUN npm install -g @prisma/client prisma && prisma generate
+RUN npm install && npm run build
 
-CMD ["node", "server.js"]
+CMD ["node", "src/index.js"]

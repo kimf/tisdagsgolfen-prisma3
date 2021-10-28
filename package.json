@@ -1,19 +1,30 @@
 {
-  "name": "script",
+  "name": "tisdagsgolfen-backend",
+  "version": "0.0.1",
+  "author": "Kim Fransman <kim@fransman.se>",
+  "type": "module",
+  "main": "./src/index.js",
   "license": "MIT",
-  "devDependencies": {
-    "prisma": "2.21.2",
-    "ts-node": "9.1.1",
-    "typescript": "4.2.3"
-  },
   "scripts": {
-    "dev": "ts-node ./script.ts"
+    "start": "node ./src/index.js",
+    "dev": "nodemand ./src/index.js",
+    "build": "npm run prisma:generate && npm run prisma:migrate",
+    "prisma:generate": "source .env && prisma generate",
+    "prisma:migrate": "source .env && prisma migrate deploy"
+  },
+  "devDependencies": {
+    "nodemand": "^0.1.11",
+    "prisma": "^3.3.0"
   },
   "dependencies": {
-    "@prisma/client": "2.21.2",
-    "express": "^4.17.1"
+    "@hapi/hapi": "^20.2.1",
+    "@prisma/client": "^3.3.0",
+    "dotenv": "^10.0.0"
   },
   "engines": {
-    "node": "14"
+    "node": "17"
+  },
+  "prisma": {
+    "seed": "node prisma/seed.js"
   }
 }
