@@ -8,10 +8,8 @@
   "scripts": {
     "start": "node ./src/index.js",
     "dev": "nodemand ./src/index.js",
-    "build": "npm run prisma:generate && npm run prisma:migrate",
-    "build:dev": "source .env && npm run build",
-    "prisma:generate": "prisma generate",
-    "prisma:migrate": "prisma migrate deploy"
+    "build": "./build.sh",
+    "build:dev": "source .env && ./build.sh"
   },
   "devDependencies": {
     "nodemand": "^0.1.11",

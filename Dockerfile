@@ -17,7 +17,5 @@ COPY package.json .
 COPY package-lock.json .
 ADD . .
 RUN npm install
-RUN npm run prisma:generate
-RUN npm run prisma:migrate
 
 CMD ["node", "src/index.js"]
