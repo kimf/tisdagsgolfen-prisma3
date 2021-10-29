@@ -15,7 +15,8 @@ RUN apk add --update curl && \
 
 COPY package.json .
 COPY package-lock.json .
+COPY .env.prod ./.env
 ADD . .
 RUN npm install
-
+RUN npm run build
 CMD ["node", "src/index.js"]

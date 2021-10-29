@@ -1,6 +1,5 @@
-import { PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
+import context from '../src/context.js';
+const { prisma } = context;
 
 const playerData = [
   {

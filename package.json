@@ -3,22 +3,27 @@
   "version": "0.0.1",
   "author": "Kim Fransman <kim@fransman.se>",
   "type": "module",
-  "main": "./src/index.js",
+  "main": "./src/server.js",
   "license": "MIT",
   "scripts": {
-    "start": "node ./src/index.js",
-    "dev": "nodemand ./src/index.js",
-    "build": "./build.sh",
-    "build:dev": "source .env && ./build.sh"
+    "start": "node ./src/server.js",
+    "dev": "nodemand ./src/server.js",
+    "build": "npm run prisma:generate && npm run prisma:migrate",
+    "build:dev": "source .env && npm run build",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate deploy"
   },
   "devDependencies": {
     "nodemand": "^0.1.11",
     "prisma": "^3.3.0"
   },
   "dependencies": {
-    "@hapi/hapi": "^20.2.1",
     "@prisma/client": "^3.3.0",
-    "dotenv": "^10.0.0"
+    "apollo-server": "^3.4.0",
+    "dotenv": "^10.0.0",
+    "graphql": "^15.7.2",
+    "graphql-scalars": "^1.12.0",
+    "nexus": "^1.1.0"
   },
   "engines": {
     "node": "17"
