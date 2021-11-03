@@ -8,6 +8,12 @@ const playerData = [
   },
 ];
 
+const coursesData = [
+  { club: 'Nynäshamns GK', name: 'Sjö-Berg', par: 72 },
+  { club: 'Nynäshamns GK', name: 'Berg-Dal', par: 72 },
+  { club: 'Nynäshamns GK', name: 'Dal-Sjö', par: 72 },
+];
+
 async function main() {
   console.log(`Start seeding ...`);
   for (const p of playerData) {
@@ -15,6 +21,12 @@ async function main() {
       data: p,
     });
     console.log(`Created player with id: ${player.id}`);
+  }
+  for (const c of coursesData) {
+    const course = await prisma.course.create({
+      data: c,
+    });
+    console.log(`Created course with id: ${course.id}`);
   }
   console.log(`Seeding finished.`);
 }
