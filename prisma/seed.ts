@@ -1,5 +1,7 @@
-import context from '../src/context.js';
-const { prisma } = context;
+import dotenv from 'dotenv';
+import { PrismaClient, Prisma } from '@prisma/client';
+dotenv.config();
+const prisma = new PrismaClient();
 
 const playerData = [
   {
