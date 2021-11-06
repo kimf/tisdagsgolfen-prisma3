@@ -6,11 +6,11 @@
   "license": "MIT",
   "scripts": {
     "dev": "ts-node-dev --no-notify --respawn --transpile-only src/index.ts",
-    "start": "DATABASE_URL=\"$DATAPROXY_URL\" node dist/index.js",
+    "start": "node dist/index.js",
     "clean": "rm -rf dist",
     "build": "npm -s run clean && npm -s run prisma:generate && tsc",
     "build:dev": "source .env && npm run build",
-    "prisma:generate": "DATABASE_URL=\"$DATAPROXY_URL\" PRISMA_CLIENT_ENGINE_TYPE='dataproxy' prisma generate",
+    "prisma:generate": "prisma generate",
     "prisma:migrate:deploy": "prisma migrate deploy",
     "prisma:migrate:dev": "source .env && prisma migrate dev"
   },

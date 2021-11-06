@@ -11,6 +11,7 @@ binaryTargets = ["native"]
 // previewFeatures = ["dataProxy"]
 }
 
-"prisma:generate": "source .env && PRISMA_CLIENT_ENGINE_TYPE='dataproxy' prisma generate",
+"start": "DATABASE_URL=\"$DATAPROXY_URL\" node dist/index.js",
+"prisma:generate": "DATABASE_URL=\"$DATAPROXY_URL\" PRISMA_CLIENT_ENGINE_TYPE='dataproxy' prisma generate",
 "prisma:migrate": "source .env && DATABASE_URL=\"$MIGRATE_DATABASE_URL\" prisma migrate deploy"
 ```
