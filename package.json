@@ -2,16 +2,16 @@
   "name": "tisdagsgolfen-backend",
   "version": "0.0.1",
   "author": "Kim Fransman <kim@fransman.se>",
-  "type": "module",
   "main": "./src/server.js",
   "license": "MIT",
   "scripts": {
-    "start": "ts-node --transpile-only ./src/index.ts",
     "dev": "ts-node-dev --no-notify --respawn --transpile-only src/index.ts",
-    "build": "npm run prisma:generate",
+    "start": "node dist/index.js",
+    "clean": "rm -rf dist",
+    "build": "npm -s run clean && npm -s run prisma:generate && tsc",
+    "build:dev": "source .env && npm run build",
     "prisma:generate": "PRISMA_CLIENT_ENGINE_TYPE='dataproxy' prisma generate",
     "prisma:migrate:deploy": "DATABASE_URL=\"$MIGRATE_DATABASE_URL\" prisma migrate deploy",
-    "build:dev": "source .env && npm run prisma:generate",
     "prisma:migrate:dev": "source .env && prisma migrate dev"
   },
   "devDependencies": {
