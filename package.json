@@ -10,7 +10,7 @@
     "dev": "ts-node-dev --no-notify --respawn --transpile-only src/index.ts",
     "build": "npm run prisma:generate",
     "prisma:generate": "PRISMA_CLIENT_ENGINE_TYPE='dataproxy' prisma generate",
-    "prisma:migrate:deploy": "prisma migrate deploy",
+    "prisma:migrate:deploy": "DATABASE_URL=\"$MIGRATE_DATABASE_URL\" prisma migrate deploy",
     "build:dev": "source .env && npm run prisma:generate",
     "prisma:migrate:dev": "source .env && prisma migrate dev"
   },
@@ -19,14 +19,14 @@
     "@types/node": "^16.11.6",
     "@types/ws": "^8.2.0",
     "nodemand": "^0.1.11",
-    "prisma": "^3.4.0",
+    "prisma": "^3.4.1",
     "ts-node": "^10.4.0",
     "ts-node-dev": "^1.1.8",
     "typegraphql-prisma": "^0.16.5",
     "typescript": "^4.4.4"
   },
   "dependencies": {
-    "@prisma/client": "^3.4.0",
+    "@prisma/client": "^3.4.1",
     "apollo-server": "^3.4.0",
     "class-validator": "^0.13.1",
     "dotenv": "^10.0.0",
