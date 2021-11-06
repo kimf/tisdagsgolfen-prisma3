@@ -8,11 +8,11 @@
   "scripts": {
     "start": "ts-node --transpile-only ./src/index.ts",
     "dev": "ts-node-dev --no-notify --respawn --transpile-only src/index.ts",
-    "build": "npm run prisma:generate && npm run prisma:migrate:dev",
-    "build:dev": "source .env && npm run build",
-    "prisma:generate": "prisma generate",
-    "prisma:migrate:dev": "prisma migrate dev",
-    "prisma:migrate:deploy": "prisma migrate deploy"
+    "build": "npm run prisma:generate",
+    "prisma:generate": "PRISMA_CLIENT_ENGINE_TYPE='dataproxy' prisma generate",
+    "prisma:migrate:deploy": "prisma migrate deploy",
+    "build:dev": "source .env && npm run prisma:generate",
+    "prisma:migrate:dev": "source .env && prisma migrate dev"
   },
   "devDependencies": {
     "@types/graphql-fields": "^1.3.4",
