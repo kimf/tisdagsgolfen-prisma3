@@ -1,11 +1,11 @@
 generator client {
   provider      = "prisma-client-js"
   binaryTargets = ["native", "linux-musl"]
-  previewFeatures = ["dataProxy"]
 }
 
 generator typegraphql {
   provider = "typegraphql-prisma"
+  simpleResolvers = true
   output   = "../src/generated/type-graphql"
 }
 
